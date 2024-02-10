@@ -1,0 +1,16 @@
+
+@import "./Navbar.css";
+
+.newbar-nav .logout-button {
+
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.newbar-nav .logout-button:hover {
+    background-color: #777;
+}

@@ -1,0 +1,45 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.navbar-nav {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-item1 {
+    margin-right: 1150px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    
+}
+
+.nav-link:hover {
+    background-color: greenyellow;
+    color: black;
+}
+
+/* Login and Register Buttons */
+.login-button,
+.register-button {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 10px 20px; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color: #777;
+}
