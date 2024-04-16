@@ -1,0 +1,27 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffd6cc;
+    min-height: 92vh;
+  }
+  
+  .profile-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; 
+  }
+  
+  .profile-details {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9; 
+  }
+  
+  .profile-label {
+    font-weight: bold;
+    color: #555; 
+  }
+  
