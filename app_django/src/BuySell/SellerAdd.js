@@ -3,7 +3,7 @@ import axios from 'axios';
 import './SellAdder.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function SellerAdd() {
   const [name, setName] = useState('');
@@ -14,11 +14,7 @@ export default function SellerAdd() {
   const [products, setProducts] = useState([{ category: '', price: '' }]);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
+;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +63,8 @@ export default function SellerAdd() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className='head2'>
+      <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -87,19 +84,15 @@ export default function SellerAdd() {
                 <FontAwesomeIcon icon={faUserPlus} /> Add Seller
               </NavLink>
             </li>
-            <li className="nav-item" style={{marginLeft:580}}>
+            <li className="nav-item" style={{marginLeft:600}}>
               <NavLink className="nav-link" to="/profile">
                 <FontAwesomeIcon icon={faUser} /> {localStorage.uname}
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick={handleLogout}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
               </NavLink>
             </li>
           </ul>
         </div>
       </nav>
+      </div>
       <br/><br/>
       <div className="seller-add-container">
         <h2>Add Seller</h2>
@@ -145,9 +138,9 @@ export default function SellerAdd() {
               )}
             </div>
           ))}
-          <button type="button" onClick={handleAddProduct}>Add Product</button>
+          <button type="button" onClick={handleAddProduct} className='add-product-button'>Add Product</button>
 
-          <button type="submit" className="submit-button">Add Seller</button>
+          <button type="submit" className="submit-button" >Add Seller</button>
         </form>
       </div>
     </div>

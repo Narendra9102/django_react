@@ -51,7 +51,7 @@ function LoginForm() {
 
   return (
     <div className="login">
-      <div>
+      <div className="head">
         <NavBar />
       </div>
       <div className="login-form">

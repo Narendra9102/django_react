@@ -87,7 +87,7 @@
   }
   
   input {
-    width: 100%;
+    width: 380px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -127,6 +127,10 @@
   }
   
   .login{
-    background-color: lightyellow;
+    background-color: #f2f2f2;
     min-height: 100vh;
+  }
+
+  .head{
+    padding: 20px;
   }

@@ -14,19 +14,27 @@ import BuyerProfile from '../BuySell/BuyerProfile';
 import SellerProfile from '../BuySell/SellerProfile';
 import SellerAdd from '../BuySell/SellerAdd';
 import FertilizerDetail from '../Products/FertilizerDetail';
+import AddCart from '../Products/AddCart';
 
 function AppNew() {
-  const isAuthenticated = () => {
-    return localStorage.getItem("token") !== null;
-  };
 
   const PrivateRoute = ({ element, ...rest }) => {
+    const isAuthenticated = () => {
+      const token = localStorage.getItem("token");
+      console.log("Token:", token);
+      return token !== null;
+    };
+  
+    console.log("Is authenticated:", isAuthenticated());
+  
     return isAuthenticated() ? (
       element
     ) : (
-      <Navigate to="/login" />
+      <Navigate to="/login" replace />
     );
   };
+  
+  
 
   return (
     <div className='App'>
@@ -35,6 +43,7 @@ function AppNew() {
         <Route path="registration" element={<RegistrationForm />} />
         <Route path="login" element={<LoginForm />} />
         <Route path="/customer/*" element={<PrivateRoute element={<Customer />} />} />
+        <Route path="/addcart" element={<PrivateRoute element={<AddCart />} />} />
         <Route path="/fertilizer" element={<PrivateRoute element={<Fertilizer />} />} />
         <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
         <Route path="/customer/product/:id" element={<PrivateRoute element={<ProductDetail />} />} />

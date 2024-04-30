@@ -33,7 +33,7 @@ function RegistrationForm() {
 
     return (
         <div className="login">
-            <div>
+            <div className="head">
                 <NavBar />
             </div>
         <div className="log">

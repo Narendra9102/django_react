@@ -10,13 +10,13 @@ function NavBar() {
       <div className="containera">
         <ul className="navbara-nav">
           <li className="nava-item1">
-            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nav" : "nava-link")} exact="true" to="/" ><FontAwesomeIcon icon={faHome} /> Home</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nava" : "nava-link")} exact="true" to="/" ><FontAwesomeIcon icon={faHome} /> Home</NavLink>
           </li>
           <li className="nava-item" >
-            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nav" : "nava-link")} to="/registration" ><FontAwesomeIcon icon={faUserPlus} /> Register</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nava" : "nava-link")} to="/registration" ><FontAwesomeIcon icon={faUserPlus} /> Register</NavLink>
           </li>
           <li className="nava-item">
-            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nav" : "nava-link")} to="/login" ><FontAwesomeIcon icon={faSignInAlt} /> Login</NavLink>
+            <NavLink className={({ isActive }) => (isActive ? "nava-link active-nava" : "nava-link")} to="/login" ><FontAwesomeIcon icon={faSignInAlt} /> Login</NavLink>
           </li>
         </ul>
       </div>

@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { NavLink, useNavigate, Link } from 'react-router-dom';
+import NewBar from '../components/NewBar';
+import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import './Buyer.css'
 
 const Buyer = () => {
-  const navigate = useNavigate();
   const [buyers, setBuyers] = useState([]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
 
   useEffect(() => {
     const getBuyers = async () => {
@@ -28,41 +23,15 @@ const Buyer = () => {
   }, []);
 
   return (
-    <div className="buyer-container">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/fertilizer">Fertilizer</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className={({ isActive }) => (isActive ? "nav-link active-nav" : "nav-link")} to="/buyer">Buyer</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/seller">Seller</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/customer">Products</NavLink>
-            </li>
-            <li className="nav-item add-buyer-link">
-              <NavLink className="nav-link" to="/buyer/add">
-                <FontAwesomeIcon icon={faUserPlus} /> Add Buyer
-              </NavLink>
-            </li>
-            <li className="nav-item" style={{marginLeft:580}}>
-              <NavLink className="nav-link" to="/profile">
-                <FontAwesomeIcon icon={faUser} /> {localStorage.uname}
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick={handleLogout}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <h2>Buyers</h2><br/><br/>
+    <div>
+      <div className="head"><NewBar /></div>
+      <div  className="buyer-container">
+      <div className="buyer-heading-container">
+        <h2 className="buyers-heading">Buyers</h2>
+        <NavLink className="add-link" to="/buyer/add">
+          <FontAwesomeIcon icon={faUserPlus} /> Add Buyer
+        </NavLink>
+      </div>
       <div className="buyers-grid">
         {buyers.map((buyer) => (
           <div key={buyer._id} className="buyer-card">
@@ -75,6 +44,7 @@ const Buyer = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

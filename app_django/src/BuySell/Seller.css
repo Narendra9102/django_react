@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 .seller-card {
@@ -21,7 +21,12 @@
   text-decoration: none;
   align-items: center;
   width: calc(50% - 20px);
-  max-width: 450px;
+  max-width: 440px;
+  border: 1px solid #006400;
+  border-radius: 8px;
+}
+.seller-card:hover {
+  transform: translateY(-5px); 
 }
 
 .seller-image {
@@ -67,6 +72,12 @@
 .cont-btn:hover {
   background-color: #0056b3;
 }
+
+.head2{
+  padding: 20px;
+  width: 1450px;
+
+}
  
   @media (max-width: 768px) {
     .buyer-card {
@@ -86,7 +97,7 @@
   }
   
   .navbar {
-    background-color: #333;
+    background-color: white;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -106,7 +117,7 @@
   }
   
   .nav-link:hover {
-    background-color: greenyellow;
+    background-color: rgb(255, 241, 47);
     color: black;
   }
   
@@ -124,11 +135,19 @@
   }
   
   .logout-button:hover {
-    background-color: #777;
-  }
+    background-color: rgb(255, 241, 47);
+    color: black !important;
+}
   
   
  .active-nav {
-  background-color: orange; 
-  color: white; 
+  background-color: black; 
+    color: white !important; 
+}
+
+.sellers-heading {
+  color: #006400; 
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

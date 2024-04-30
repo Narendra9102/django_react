@@ -3,7 +3,7 @@ import axios from 'axios';
 import './BuyAdder.css'; 
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function BuyerAdd() {
   const [name, setName] = useState('');
@@ -16,10 +16,6 @@ export default function BuyerAdd() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +42,7 @@ export default function BuyerAdd() {
   };
 
   return (
-    <div>
+    <div className='head2'>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <ul className="navbar-nav">
@@ -70,11 +66,6 @@ export default function BuyerAdd() {
             <li className="nav-item" style={{marginLeft:580}}>
               <NavLink className="nav-link" to="/profile">
                 <FontAwesomeIcon icon={faUser} /> {localStorage.uname}
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick={handleLogout}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
               </NavLink>
             </li>
           </ul>
@@ -120,7 +111,7 @@ export default function BuyerAdd() {
             <input type="text" name="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
           </div>
 
-          <button type="submit" className="submit-button">Add Seller</button>
+          <button type="submit" className="submit-button">Add Buyer</button>
         </form>
       </div>
     </div>

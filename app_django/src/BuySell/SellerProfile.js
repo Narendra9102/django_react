@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NewBar from '../components/NewBar';
-import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './Sellerprofile.css';
 
@@ -10,12 +9,6 @@ const SellerProfile = () => {
   const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
 
   useEffect(() => {
     const fetchSeller = async () => {
@@ -35,7 +28,9 @@ const SellerProfile = () => {
 
   return (
     <div>
-      <NewBar handleLogout={handleLogout} />
+      <div>
+        <NewBar />
+      </div>
       <h2>Seller Details</h2><br/><br/>
     <div className="seller-profile-container">
       {loading && <div className="loader">Loading...</div>}

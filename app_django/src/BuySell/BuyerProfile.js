@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NewBar from '../components/NewBar';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import './Buyerprofile.css'; 
 
 const BuyerProfile = () => {
@@ -10,12 +9,7 @@ const BuyerProfile = () => {
   const [buyer, setBuyer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
 
   useEffect(() => {
     const fetchBuyer = async () => {
@@ -47,7 +41,9 @@ const BuyerProfile = () => {
 
   return (
     <div>
-      <NewBar handleLogout={handleLogout} />
+      <div>
+        <NewBar />
+      </div>
       <h2>Buyer Details</h2><br/><br/>
     <div className="buyer-profile">
       <h2>Buyer Profile</h2>

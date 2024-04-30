@@ -30,9 +30,9 @@ const Fertilizer = () => {
 
   return (
     <div>
-      <NewBar handleLogout={handleLogout} />
+      <div className="head"><NewBar handleLogout={handleLogout} /></div>
       <div className="customer-container">
-        <h2>Fertilizers</h2>
+        <h2 className='section-heading'>Fertilizers</h2>
         <div className="product-cards">
           {fertilizers.map((item) => (
 
@@ -40,7 +40,6 @@ const Fertilizer = () => {
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>&#8377; {item.price}</p>
-              <p>{item.category}</p>
             </Link>
           ))}
         </div>
