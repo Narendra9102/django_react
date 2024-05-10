@@ -1,0 +1,60 @@
+.buying-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-heading {
+    text-align: center;
+}
+
+.buying-card {
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+
+}
+
+.buying-image {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.buying-details {
+    flex-grow: 1;
+}
+
+.buying-name {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
+
+.buying-price {
+    margin: 5px 0;
+    text-align: center;
+}
+
+
+.delivery-details, .payment-details {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.confirm-order-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.confirm-order-button:hover {
+    background-color: #218838;
+}
