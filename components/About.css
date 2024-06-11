@@ -1,0 +1,52 @@
+.about-container {
+    padding: 20px;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-content h2 {
+    color: #333;
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-content h3 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+  
+  .about-content p {
+    color: #777;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+
+.about-container {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-size: 400% 400%;
+  /*animation: aboutGradientAnimation 15s ease infinite;*/
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes aboutGradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about-content {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+}
