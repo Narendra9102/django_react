@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffb347;
+  background-color: #ffecd1;
   min-height: 100vh;
 }
 
@@ -13,22 +13,24 @@
   gap: 30px;
 }
 
+
 .seller-card {
   display: flex;
-  background-color: #f5f5f5;
+  background-color: #dfe6e9;;
   border-radius: 8px;
   color: black;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   text-decoration: none;
   align-items: center;
   width: calc(50% - 20px);
   max-width: 440px;
   border: 1px solid #006400;
-  border-radius: 8px;
 }
+
 .seller-card:hover {
   transform: translateY(-5px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .seller-image {
@@ -75,76 +77,74 @@
   background-color: #0056b3;
 }
 
-.head2{
+.head2 {
   padding: 20px;
   width: 1450px;
-
 }
- 
-  @media (max-width: 768px) {
-    .buyer-card {
-      flex-direction: column;
-      width: 100%;
-    }
-  
-    .buyer-image {
-      width: 100%;
-      height: auto;
-      border-radius: 8px 8px 0 0;
-    }
-  
-    .buyer-info {
-      align-items: center;
-    }
-  }
-  
-  .navbar {
-    background-color: white;
+
+@media (max-width: 768px) {
+  .seller-card {
+    flex-direction: column;
     width: 100%;
-    overflow: hidden;
-    display: flex;
+  }
+
+  .seller-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .seller-info {
     align-items: center;
   }
-  
-  .navbar-nav {
-    list-style-type: none;
-    display: flex;
-    margin-left: auto;
-  }
-  
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-  }
-  
-  .nav-link:hover {
-    background-color: rgb(255, 241, 47);
-    color: black;
-  }
-  
-  .add-buyer-link {
-    margin-left: auto;
-  }
-  
-  .logout-button {
-    background-color: #555555;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .logout-button:hover {
-    background-color: rgb(255, 241, 47);
-    color: black !important;
 }
-  
-  
- .active-nav {
+
+.navbar {
+  background-color: white;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.nav-link:hover {
+  background-color: rgb(255, 241, 47);
+  color: black;
+}
+
+.add-buyer-link {
+  margin-left: auto;
+}
+
+.logout-button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logout-button:hover {
+  background-color: rgb(255, 241, 47);
+  color: black !important;
+}
+
+.active-nav {
   background-color: black; 
-    color: white !important; 
+  color: white !important; 
 }
 
 .sellers-heading {

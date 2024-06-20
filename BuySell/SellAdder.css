@@ -4,13 +4,20 @@
   padding: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background 0.5s ease;
+}
+
+.seller-add-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #bbdefb, #ffffff);
 }
 
 .seller-add-container h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: #1976d2;
+  font-size: 24px;
 }
 
 .form-group {
@@ -19,7 +26,7 @@
 
 .form-group label {
   font-weight: bold;
-  color: #555;
+  color: #333;
 }
 
 input[type="text"],
@@ -30,6 +37,14 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.2);
 }
 
 input[type="file"] {
@@ -37,35 +52,36 @@ input[type="file"] {
 }
 
 .error-message {
-  color: #ff0000;
+  color: #d32f2f;
   margin-bottom: 10px;
 }
 
 .remove-product-button {
-  background-color: #dc3545;
+  background-color: #d32f2f;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   margin-right: 10px; 
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .remove-product-button:hover {
-  background-color: #c82333;
+  background-color: #b71c1c;
+  transform: scale(1.05);
 }
 
 .add-product-button,
 .submit-button {
   display: inline-block;
-  background-color: #007bff;
+  background-color: #1976d2;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 12px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .add-product-button {
@@ -74,5 +90,6 @@ input[type="file"] {
 
 .add-product-button:hover,
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #0d47a1;
+  transform: scale(1.05);
 }
