@@ -3,13 +3,12 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins , generics
 from django.contrib.auth.models import User
-from .models import Customer, Product , Buyer , Seller , Fertilizer
-from .serializers import CustomerSerializer, LoginSerializer, ProductSerializer , BuyerSerializer, SellerSerializer, FertilizerSerializer
+from .models import Customer, Product, Buyer, Seller, Fertilizer , Cart, CartItem
+from .serializers import CustomerSerializer, LoginSerializer, ProductSerializer, BuyerSerializer, SellerSerializer, FertilizerSerializer, ProsSerializer , CartSerializer
 from django.shortcuts import render
 from django.http import Http404
-
 
 
 def index(request):
@@ -46,7 +45,7 @@ class RegistrationViewSet(viewsets.ModelViewSet):
         customer = Customer.objects.create(user=user, **serializer.validated_data)
         token, created = Token.objects.get_or_create(user=user)
         headers = self.get_success_headers(serializer.data)
-        return Response({'token': token.key}, status=status.HTTP_201_CREATED, headers=headers)
+        return Response({'token': token.key, 'user_id': user.id}, status=status.HTTP_201_CREATED, headers=headers)
 
 
 @api_view(['POST'])
@@ -82,7 +81,8 @@ class LoginViewSet(viewsets.GenericViewSet, mixins.CreateModelMixin):
         user_d = Customer.objects.get(user=user)
         user_data = {
             "username": user_d.customerName,
-            "mobileno": user_d.mobileNumber
+            "mobileno": user_d.mobileNumber,
+            "user_id": user.id
         }
 
         user_data = {
@@ -116,6 +116,16 @@ class FertilizerView(viewsets.ModelViewSet):
     queryset = Fertilizer.objects.all()
     serializer_class = FertilizerSerializer
 
+
+class CartListCreateView(generics.ListCreateAPIView):
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+
+class CartRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+
+
 class BuyView(viewsets.ModelViewSet):
     queryset = Buyer.objects.all()
     serializer_class = BuyerSerializer
@@ -123,4 +133,51 @@ class BuyView(viewsets.ModelViewSet):
 class SellView(viewsets.ModelViewSet):
     queryset = Seller.objects.all()
     serializer_class = SellerSerializer
+
+    def create(self, request, *args, **kwargs):
+        products_data = request.data.pop('products', None)
+
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid():
+            self.perform_create(serializer)
+
+            if products_data:
+                for product_data in products_data:
+
+                    product_data['seller'] = serializer.instance.pk
+                    product_serializer = ProsSerializer(data=product_data)
+                    if product_serializer.is_valid():
+                        product_serializer.save()
+                    else:
+                        self.perform_destroy(serializer.instance)
+                        return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.contenttypes.models import ContentType
+
+
+class AddToCartView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, product_id):
+        user = request.user
+        product = Product.objects.get(p_id=product_id)
+        customer = Customer.objects.get(user=user)
+        cart, created = Cart.objects.get_or_create(customer=customer)
+
+        product_content_type = ContentType.objects.get_for_model(product)
+        cart_item, created = CartItem.objects.get_or_create(
+            cart=cart, content_type=product_content_type, object_id=product.p_id
+        )
+        if not created:
+            cart_item.quantity += 1
+        cart_item.save()
+        return Response({'status': 'product added to cart'}, status=status.HTTP_200_OK)
 
