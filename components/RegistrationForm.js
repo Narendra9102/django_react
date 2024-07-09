@@ -96,11 +96,16 @@ function RegistrationForm() {
                     type="submit"
                     className="login-btn">Register </button>
 
+                    <div className="extra-options">
+                        <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>
+                    </div>
+
+
                 <br /><br />
 
-                <Link
+                <p className="already-have-account ">Already have an account? <Link
                     to='/login'
-                    className='list'>Login</Link>
+                    className='list'>Login</Link></p>
 
             </form>
         </div>

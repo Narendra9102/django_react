@@ -5,18 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faFlask, faStore, faShoppingBag, faBoxOpen, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const NewBar = () => {
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/'; 
+    };
+    
     return (
         <nav className="navbar2 navbar-expand-lg">
             <div className="container">
                 <ul className="navbar2-nav">
                     <li className="nav-item">
                         <NavLink className={({ isActive }) => (isActive ? "nav-link active-nav2" : "nav-link")} to="/fertilizer">
-                            <FontAwesomeIcon icon={faFlask} /> Fertilizer
+                            <FontAwesomeIcon icon={faFlask} style={{marginRight: 3}} /> Fertilizer
                         </NavLink>
                     </li>
                     <li className="nav-item dropdown">
                         <div className="nav-link dropdown-toggle">
-                            <FontAwesomeIcon icon={faShoppingBag} /> Buyer
+                            <FontAwesomeIcon icon={faShoppingBag} style={{marginRight: 3}} />Buyer
                         </div>
                         <div className="dropdown-menu">
                             <NavLink className={({ isActive }) => (isActive ? "dropdown-item active-nav2" : "dropdown-item")} to="/buyer/">Buyer</NavLink>
@@ -25,7 +31,7 @@ const NewBar = () => {
                     </li>
                     <li className="nav-item dropdown">
                         <div className="nav-link dropdown-toggle">
-                            <FontAwesomeIcon icon={faStore} /> Seller
+                            <FontAwesomeIcon icon={faStore} style={{marginRight: 3}} /> Seller
                         </div>
                         <div className="dropdown-menu">
                             <NavLink className={({ isActive }) => (isActive ? "dropdown-item active-nav2" : "dropdown-item")} to="/seller/">Seller</NavLink>
@@ -34,7 +40,7 @@ const NewBar = () => {
                     </li>
                     <li className="nav-item">
                         <NavLink className={({ isActive }) => (isActive ? "nav-link active-nav2" : "nav-link")} to="/customer">
-                            <FontAwesomeIcon icon={faBoxOpen} /> Products
+                            <FontAwesomeIcon icon={faBoxOpen} style={{marginRight: 3}} /> Products
                         </NavLink>
                     </li>
                     <li className="nav-item search-item">
@@ -58,7 +64,7 @@ const NewBar = () => {
                         </div>
                         <div className="dropdown-menu">
                             <NavLink className={({ isActive }) => (isActive ? "dropdown-item active-nav2" : "dropdown-item")} to="/profile">Profile</NavLink>
-                            <NavLink className={({ isActive }) => (isActive ? "dropdown-item active-nav2" : "dropdown-item")} to="/">Logout</NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? "dropdown-item active-nav2" : "dropdown-item")} to="/" onClick={handleLogout}>Logout</NavLink>
                         </div>
                     </li>
 

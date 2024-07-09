@@ -227,3 +227,39 @@ input:valid ~ .float-label label {
     transform: translateY(0);
   }
 }
+
+.extra-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.forgot-password-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.already-have-account {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+.already-have-account {
+  text-decoration: none;
+  color: #4caf50;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.already-have-account:hover {
+  text-decoration: none;
+  color: #007bff;
+}

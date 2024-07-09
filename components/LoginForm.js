@@ -87,9 +87,9 @@ function LoginForm() {
           <br />
           <br />
 
-          <Link to="/registration" className="btn btn-primary border w-50">
+          <p className="already-have-account ">Don't have an account yet?  <Link to="/registration">
             Create Account
-          </Link>
+          </Link></p>
           <br />
           <br />
         </form>

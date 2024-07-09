@@ -1,4 +1,3 @@
-
 html, body {
   height: 100%;
   margin: 0;
@@ -8,22 +7,20 @@ html, body {
 .home-container {
   align-items: center;
   justify-content: center;
-  height: 100vh; 
+  min-height: 100vh;
   background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
-  background-size: 800% 800%;
-  /*animation: gradientBackground 20s ease infinite;*/
   padding: 20px;
 }
 
 @keyframes gradientBackground {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
   50% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
   100% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
 }
 
@@ -31,7 +28,7 @@ html, body {
   text-align: center;
   max-width: 1000px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
 }
@@ -43,7 +40,7 @@ html, body {
 
 .subheading {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .features {
@@ -51,6 +48,10 @@ html, body {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.feature {
+  text-align: center; 
 }
 
 .feature-link {
@@ -72,15 +73,19 @@ html, body {
   transform: scale(1.05);
 }
 
-.body {
-  overflow: auto; 
-}
 
-* {
-  scrollbar-width: none;
-  -ms-overflow-style: none; 
-}
-
-*::-webkit-scrollbar { 
-  display: none;  
+@media (max-width: 768px) {
+  .home-content {
+    padding: 10px;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+  .subheading {
+    font-size: 1.2rem;
+  }
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
